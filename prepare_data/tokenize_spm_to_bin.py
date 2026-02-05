@@ -31,11 +31,17 @@ with open(inp, "rb") as f, open(out_train, "ab") as ftr, open(out_val, "ab") as 
     pbar = tqdm(total=file_size, unit="B", unit_scale=True, desc="Tokenizing(SPM)")
     for line in f:
         pbar.update(len(line))
-        s = line.decode("utf-8", errors="ignore").strip()
-        if not s:
-            continue
+
+        # Decode but KEEP the newline + whitespace
+        s = line.decode("utf-8", errors="ignore")
+        if s == "":
+            continue  # Truly empty decode (rare)
+
         ids = sp.encode(s, out_type=int)
-        ids.append(sp.eos_id())  # important separator
+
+        # If you want a hard separator between lines/doc-chunks, keep EOS.
+        # If you do NOT want EOS after every line, remove this.
+        ids.append(sp.eos_id())
 
         arr = np.asarray(ids, dtype=DTYPE)
         if f.tell() < split_at:
