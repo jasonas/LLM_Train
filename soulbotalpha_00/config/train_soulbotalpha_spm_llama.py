@@ -16,8 +16,8 @@ bias = False
 checkpointing = True
 
 # Keep tokens/step 1*64*1024 = 65536
-batch_size = 1
-gradient_accumulation_steps = 64
+batch_size = 32 # '32' for Nvidia x4 or '1' for Mac
+gradient_accumulation_steps = 4 # '4' for Nvidia x4 or '64' for Mac
 
 max_iters = 20000
 learning_rate = 2e-5
@@ -33,7 +33,7 @@ eval_interval = 1000
 eval_iters = 50
 log_interval = 10
 
-device = "mps"
+device = "cuda" # 'cuda' for Nvidia or 'mps' for Mac
 dtype = "bfloat16" # dtype = "float16" / try bfloat16 instead on MPS (often more stable than float16)
 compile = False
 
