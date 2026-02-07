@@ -1,7 +1,7 @@
 import os, json, pickle
 
 def main() -> None:
-    d = os.path.expanduser("~/LLM_Train/soulbotalpha_00/data/soulbotalpha_spm")
+    d = os.path.expanduser("/workspace/LLM_Train/soulbotalpha_00/data/soulbotalpha_spm")
     meta_json_path = os.path.join(d, "meta.json")
 
     with open(meta_json_path, "r", encoding="utf-8") as f:

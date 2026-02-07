@@ -1,7 +1,7 @@
 import os, sentencepiece as spm
 
-inp = os.path.expanduser("~/LLM_Train/prepare_data/pretrain_corpus.txt")
-out_dir = os.path.expanduser("~/LLM_Train/soulbotalpha_00/data/soulbotalpha_spm")
+inp = os.path.expanduser("/workspace/LLM_Train/prepare_data/pretrain_corpus.txt")
+out_dir = os.path.expanduser("/workspace/LLM_Train/soulbotalpha_00/data/soulbotalpha_spm")
 os.makedirs(out_dir, exist_ok=True)
 
 spm.SentencePieceTrainer.train(

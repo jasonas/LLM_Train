@@ -1,10 +1,10 @@
 import os, json, numpy as np, sentencepiece as spm
 from tqdm import tqdm
 
-inp = os.path.expanduser("~/LLM_Train/prepare_data/pretrain_corpus.txt")
-spm_model = os.path.expanduser("~/LLM_Train/soulbotalpha_00/data/soulbotalpha_spm/tokenizer.model")
+inp = os.path.expanduser("/workspace/LLM_Train/prepare_data/pretrain_corpus.txt")
+spm_model = os.path.expanduser("/workspace/LLM_Train/soulbotalpha_00/data/soulbotalpha_spm/tokenizer.model")
 
-out_dir = os.path.expanduser("~/LLM_Train/soulbotalpha_00/data/soulbotalpha_spm/")
+out_dir = os.path.expanduser("/workspace/LLM_Train/soulbotalpha_00/data/soulbotalpha_spm/")
 os.makedirs(out_dir, exist_ok=True)
 
 out_train = os.path.join(out_dir, "train.bin")
